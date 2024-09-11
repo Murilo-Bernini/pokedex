@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      
+    }
+    .pokemon {
+      margin-bottom: 10px;
+      
+    }
+    .pokemon img {
+      width: 100px;
+      height: 100px;
+    }
+    a{
+        display: flex;
+      align-items: center;
+      text-align: center;
+        text-decoration: none;
+        color: black;
+        margin-right: 10px;
+        
+    }
+  </style>
+</head>
+<body>
+  <h1>Pokédex</h1>
+  <form action="/search" method="get">
+    <input type="text" name="query" placeholder="Search for a Pokémon" required>
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+    <% pokemons.forEach(pokemon => { %>
+      <li class="pokemon">
+        <a href="/pokemon/<%= pokemon.name %>">
+          <strong><%= pokemon.name %></strong>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= pokemon.url.split('/')[6] %>.png" alt="<%= pokemon.name %>">
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

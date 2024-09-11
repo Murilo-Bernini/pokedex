@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pokemon.name %> - Pokédex</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .pokemon {
+      margin-bottom: 10px;
+    }
+    .pokemon img {
+      width: 200px;
+      height: 200px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= pokemon.name %></h1>
+  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= pokemon.id %>.png" alt="<%= pokemon.name %>">
+  <h2>Status:</h2>
+  <ul>
+    <% pokemon.stats.forEach(stat => { %>
+      <li><%= stat.stat.name %>: <%= stat.base_stat %></li>
+    <% }); %>
+  </ul>
+  <a href="/">Back to Pokédex</a>
+</body>
+</html>
